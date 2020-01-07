@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv/config');
 
 app.listen(3000);
 
@@ -15,7 +16,7 @@ app.get('/posts', (req, res) => {
 
 //Connect To DB
 mongoose.connect(
-    'mongodb+srv://Rest:<tharaka@95>@cluster0-cqbu4.gcp.mongodb.net/test?retryWrites=true&w=majority',
+      process.env.DB_CONNECTION,
      {useNewUrlParser: true},
      //{useUnifiedTopology: true },
      () => console.log('connected to DB!'));
